@@ -11,7 +11,6 @@
   --border-color: #e0e0e0;
 }
 
-
 body.dark-mode {
   --bg-color: #121212;
   --bg-secondary: #1e1b26;
@@ -28,7 +27,6 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 .hero {
   background-color: var(--bg-secondary);
@@ -49,7 +47,7 @@ body {
   font-size: 1.1rem;
 }
 
-.btn-primary {
+.btn-primary, .btn {
   background-color: var(--primary-color);
   color: #ffffff;
   padding: 12px 24px;
@@ -62,10 +60,9 @@ body {
   display: inline-block;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn:hover {
   background-color: var(--primary-hover);
 }
-
 
 section {
   padding: 60px 20px;
@@ -80,34 +77,77 @@ section h2 {
   font-size: 2rem;
 }
 
-
-.cards-grid {
+/* --- ABOUT SECTION --- */
+.about-grid {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.card {
+.about-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 24px;
   text-align: center;
-  flex: 1 1 200px;
-  max-width: 220px;
+  flex: 1 1 250px;
+  max-width: 300px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.card h3 {
-  margin-top: 15px;
-  margin-bottom: 5px;
+.about-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--primary-color);
   font-size: 1.2rem;
 }
 
-.card p {
+.about-card p {
   color: var(--text-muted);
   font-size: 0.9rem;
+  margin: 0;
+}
+
+/* --- TEAM SECTION (Full-width background + 4 cards in a row) --- */
+section.team {
+  background-color: var(--bg-secondary);
+  max-width: 100%;
+  width: 100%;
+}
+
+.team .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  flex: 1 1 180px;
+  max-width: 210px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.team-card h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.team-card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
   margin: 0;
 }
 
@@ -124,12 +164,7 @@ section h2 {
   font-weight: bold;
 }
 
-
-.team-section-bg {
-  background-color: var(--bg-secondary);
-  width: 100%;
-}
-
+/* --- CONTACT SECTION & FORM FIX --- */
 .contact-form {
   max-width: 500px;
   margin: 0 auto;
@@ -141,7 +176,8 @@ section h2 {
 .form-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
+  width: 100%;
 }
 
 .form-group label {
@@ -153,16 +189,24 @@ section h2 {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: var(--card-bg);
   color: var(--text-color);
+  font-family: inherit;
+  font-size: 1rem;
   box-sizing: border-box;
 }
 
-.form-message {
-  color: #2e7d32;
-  font-weight: bold;
-  font-size: 0.9rem;
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(92, 39, 153, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
 }
